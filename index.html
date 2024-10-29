@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Paneles Solares</title>
+    <style>
+        /* Estilos generales */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4a90e2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        /* Título del programa */
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Subtítulo */
+        .subtitle {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #dbe9f4;
+        }
+
+        /* Fondo azul */
+        .background-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Estilos de entrada */
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        input, select {
+            background-color: #f9f9f9;
+        }
+
+        /* Botón de cálculo */
+        button {
+            background-color: #4a90e2;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+        }
+
+        /* Resultados */
+        .result {
+            font-size: 1.1em;
+            margin-top: 20px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="title">Calculadora de Paneles Solares</div>
+    <div class="subtitle">Hecho por R. Roberto Vidal</div>
+    
+    <div class="background-box">
+        <h2>Ingrese los datos</h2>
+        <input type="number" id="pmp" placeholder="Potencia por Panel (Pmp) en W" step="0.01" required>
+        <input type="number" id="ump" placeholder="Voltaje por Panel (Ump) en V" step="0.01" required>
+        <input type="number" id="imp" placeholder="Corriente por Panel (Imp) en A" step="0.01" required>
+        <input type="number" id="n_serie" placeholder="Número de Paneles en Serie" min="1" required>
+        <input type="number" id="n_paralelo" placeholder="Número de Paneles en Paralelo" min="1" required>
+        
+        <select id="tipo_conexion" required>
+            <option value="" disabled selected>Tipo de Conexión</option>
+            <option value="serie">Serie</option>
+            <option value="paralelo">Paralelo</option>
+            <option value="mixto">Mixto</option>
+        </select>
+        
+        <button onclick="calcular()">Calcular</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+</div>
+
+<script>
+function calcular() {
+    const pmp = parseFloat(document.getElementById('pmp').value);
+    const ump = parseFloat(document.getElementById('ump').value);
+    const imp = parseFloat(document.getElementById('imp').value);
+    const nSerie = parseInt(document.getElementById('n_serie').value);
+    const nParalelo = parseInt(document.getElementById('n_paralelo').value);
+    const tipoConexion = document.getElementById('tipo_conexion').value;
+
+    if (isNaN(pmp) || isNaN(ump) || isNaN(imp) || isNaN(nSerie) || isNaN(nParalelo) || !tipoConexion) {
+        document.getElementById('result').innerText = "Por favor, completa todos los campos con valores válidos.";
+        return;
+    }
+
+    let pTotal, uTotal, iTotal;
+
+    if (tipoConexion === "serie") {
+        pTotal = pmp * nSerie;
+        uTotal = ump * nSerie;
+        iTotal = imp;
+    } else if (tipoConexion === "paralelo") {
+        pTotal = pmp * nParalelo;
+        uTotal = ump;
+        iTotal = imp * nParalelo;
+    } else if (tipoConexion === "mixto") {
+        pTotal = pmp * nSerie * nParalelo;
+        uTotal = ump * nSerie;
+        iTotal = imp * nParalelo;
+    }
+
+    document.getElementById('result').innerHTML = `
+        <strong>Resultados:</strong><br>
+        Potencia Total (Pmp): ${pTotal.toFixed(2)} W<br>
+        Voltaje Total (Ump): ${uTotal.toFixed(2)} V<br>
+        Corriente Total (Imp): ${iTotal.toFixed(2)} A
+    `;
+}
+</script>
+
+</body>
+</html>
