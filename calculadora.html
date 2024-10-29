@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Paneles Solares</title>
+    <style>
+        /* Estilos generales */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #e0f7fa;
+        }
+
+        /* Contenedor principal */
+        .container {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Encabezado */
+        h2 {
+            color: #0277bd;
+            margin-bottom: 1rem;
+        }
+
+        /* Fondo azul */
+        .background-box {
+            background-color: #0277bd;
+            border-radius: 15px;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        /* Estilos de entrada */
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        input, select {
+            background-color: #f9f9f9;
+        }
+
+        /* Botón de cálculo */
+        button {
+            background-color: #0277bd;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #01579b;
+        }
+
+        /* Resultados */
+        .result {
+            font-size: 1.1em;
+            margin-top: 20px;
+            color: #333333;
+        }
+    .Estilo1 {color: #000000}
+    </style>
+</head>
+<body>
+
+<div class="background-box">
+    <div class="container">
+        <h1 class="Estilo1">Calculadora</h1>
+        <h4 class="Estilo1">by R. Roberto Vidal</h4>
+        <input type="number" id="pmp" placeholder="Potencia por Panel (Pmp) en W" step="0.01" required>
+        <input type="number" id="ump" placeholder="Voltaje por Panel (Ump) en V" step="0.01" required>
+        <input type="number" id="imp" placeholder="Corriente por Panel (Imp) en A" step="0.01" required>
+        <input type="number" id="n_serie" placeholder="Numero de Paneles en Serie" min="1" required>
+        <input type="number" id="n_paralelo" placeholder="Numero de Paneles en Paralelo" min="1" required>
+        
+        <select id="tipo_conexion" required>
+            <option value="" disabled selected>Tipo de Conexion</option>
+            <option value="serie">Serie</option>
+            <option value="paralelo">Paralelo</option>
+            <option value="mixto">Mixto</option>
+        </select>
+        
+        <button onClick="calcular()">Calcular</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+</div>
+
+<script>
+function calcular() {
+    const pmp = parseFloat(document.getElementById('pmp').value);
+    const ump = parseFloat(document.getElementById('ump').value);
+    const imp = parseFloat(document.getElementById('imp').value);
+    const nSerie = parseInt(document.getElementById('n_serie').value);
+    const nParalelo = parseInt(document.getElementById('n_paralelo').value);
+    const tipoConexion = document.getElementById('tipo_conexion').value;
+
+    if (isNaN(pmp) || isNaN(ump) || isNaN(imp) || isNaN(nSerie) || isNaN(nParalelo) || !tipoConexion) {
+        document.getElementById('result').innerText = "Por favor, completa todos los campos con valores válidos.";
+        return;
+    }
+
+    let pTotal, uTotal, iTotal;
+
+    if (tipoConexion === "serie") {
+        pTotal = pmp * nSerie;
+        uTotal = ump * nSerie;
+        iTotal = imp;
+    } else if (tipoConexion === "paralelo") {
+        pTotal = pmp * nParalelo;
+        uTotal = ump;
+        iTotal = imp * nParalelo;
+    } else if (tipoConexion === "mixto") {
+        pTotal = pmp * nSerie * nParalelo;
+        uTotal = ump * nSerie;
+        iTotal = imp * nParalelo;
+    }
+
+    document.getElementById('result').innerHTML = `
+        <strong>Resultados:</strong><br>
+        Potencia Total (Pmp): ${pTotal.toFixed(2)} W<br>
+        Voltaje Total (Ump): ${uTotal.toFixed(2)} V<br>
+        Corriente Total (Imp): ${iTotal.toFixed(2)} A
+    `;
+}
+</script>
+
+</body>
+</html>
+
