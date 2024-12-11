@@ -149,7 +149,7 @@ with col6:
     <div class='result-card'>
         <div class='icon'>🔋</div>
         <div class='value'>{imp_total:.2f} A</div>
-        <div>Corriente Total (IMP)</div>
+        <div>Intensidad Total (IMP)</div>
     </div>
     """, unsafe_allow_html=True)
 
