@@ -100,7 +100,7 @@ no_ps, no_min_ps, no_max_ps, no_max_par = calcular_inversor(pmax, p, rtmin, u, r
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown(f"<div class='result-card'><div class='icon'>🌡️</div><div class='value'>{tc:.2f} °C</div><div>Temperatura de Celula</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>🌡️</div><div class='value'>{tc:.2f} °C</div><div>Temperatura  Celula</div></div>", unsafe_allow_html=True)
     st.markdown(f"<div class='result-card'><div class='icon'>⚡️</div><div class='value'>{u:.2f} Vcc</div><div>Tensión</div></div>", unsafe_allow_html=True)
 
 with col2:
