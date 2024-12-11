@@ -100,7 +100,7 @@ no_ps, no_min_ps, no_max_ps, no_max_par = calcular_inversor(pmax, p, rtmin, u, r
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown(f"<div class='result-card'><div class='icon'>🌡️</div><div class='value'>{tc:.2f} °C</div><div>Temperatura  Celula</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>🌡️</div><div class='value'>{tc:.2f} °C</div><div>Temp. Celula</div></div>", unsafe_allow_html=True)
     st.markdown(f"<div class='result-card'><div class='icon'>⚡️</div><div class='value'>{u:.2f} Vcc</div><div>Tensión</div></div>", unsafe_allow_html=True)
 
 with col2:
@@ -113,12 +113,12 @@ st.write("### Cálculos del Inversor")
 col3, col4 = st.columns(2)
 
 with col3:
-    st.markdown(f"<div class='result-card'><div class='icon'>🛰️</div><div class='value'>{no_ps:.2f} / {math.ceil(no_ps)}</div><div># Paneles Solares</div></div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_min_ps:.2f} / {math.ceil(no_min_ps)}</div><div># Min. Paneles Serie</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>🛰️</div><div class='value'>{no_ps:.2f} / {math.ceil(no_ps)}</div><div>No. PS</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_min_ps:.2f} / {math.ceil(no_min_ps)}</div><div># ≻ Serie</div></div>", unsafe_allow_html=True)
 
 with col4:
-    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_ps:.2f} / {math.floor(no_max_ps)}</div><div># Máximo Paneles Serie</div></div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_par:.2f} / {math.floor(no_max_par)}</div><div># Máximo Paralelo</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_ps:.2f} / {math.floor(no_max_ps)}</div><div>≺ Serie</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_par:.2f} / {math.floor(no_max_par)}</div><div>≺Paralelo</div></div>", unsafe_allow_html=True)
 
 # Cálculo de Número de Serie y Paralelo con los resultados de Potencia, Tensión e Intensidad
 st.write("### Serie y Paralelo")
