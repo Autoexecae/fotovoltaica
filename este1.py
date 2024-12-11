@@ -105,7 +105,7 @@ with col1:
 
 with col2:
     st.markdown(f"<div class='result-card' style='background-color: #00D1B2; color: #000000;'><div class='icon'>🔋</div><div class='value'>{p:.2f} W</div><div>Potencia</div></div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='result-card'><div class='icon'>💡</div><div class='value'>{i:.2f} A</div><div>Intensidad</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>💡</div><div class='value'>{i:.2f} A</div><div> Intensidad</div></div>", unsafe_allow_html=True)
 
 # Mostrar cálculos del inversor
 st.write("### Cálculos del Inversor")
