@@ -36,20 +36,20 @@ st.markdown(
         }
         .result-card {
             background-color: #1E1E2E;
-            padding: 30px;
+            padding: 15px;  /* Reducción del padding */
             border-radius: 10px;
             text-align: center;
             color: #FFFFFF;
-            font-size: 1.5em;
-            margin: 10px;
+            font-size: 1.2em;  /* Reducción del tamaño de fuente */
+            margin: 8px;  /* Reducción del margen */
         }
         .result-card .value {
-            font-size: 2em;
+            font-size: 1.5em;  /* Reducción del tamaño de la fuente */
             font-weight: bold;
         }
         .icon {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 2em;  /* Reducción del tamaño del ícono */
+            margin-bottom: 5px;  /* Menor espacio debajo del ícono */
         }
         .sidebar .sidebar-content {
             background-color: #1E1E2E;
@@ -165,3 +165,4 @@ st.markdown(f"""
 # Footer
 st.write("---")
 st.caption("Calculadora Fotovoltaica - Diseñada por Rubysnen Roberto Vidal")
+
