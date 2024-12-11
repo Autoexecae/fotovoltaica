@@ -117,8 +117,8 @@ with col3:
     st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_min_ps:.2f} / {math.ceil(no_min_ps)}</div><div># ≻ Serie</div></div>", unsafe_allow_html=True)
 
 with col4:
-    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_ps:.2f} / {math.floor(no_max_ps)}</div><div>≺ Serie</div></div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_par:.2f} / {math.floor(no_max_par)}</div><div>≺Paralelo</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_ps:.2f} / {math.floor(no_max_ps)}</div><div> # ≺ Serie</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_par:.2f} / {math.floor(no_max_par)}</div><div> # ≺Paralelo</div></div>", unsafe_allow_html=True)
 
 # Cálculo de Número de Serie y Paralelo con los resultados de Potencia, Tensión e Intensidad
 st.write("### Serie y Paralelo")
