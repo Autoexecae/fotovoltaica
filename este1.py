@@ -124,8 +124,8 @@ with col4:
 st.write("### Serie y Paralelo")
 
 # Entrada de número de series y paralelos
-num_series = st.number_input("cantidad de serie:", min_value=1, value=math.ceil(no_min_ps), step=1)
-num_paralelos = st.number_input("cantidad de paralelo:", min_value=1, value=math.floor(no_max_par), step=1)
+num_series = st.number_input("Cantidad de serie:", min_value=1, value=math.ceil(no_min_ps), step=1)
+num_paralelos = st.number_input("Cantidad de paralelo:", min_value=1, value=math.floor(no_max_par), step=1)
 
 # Cálculos adicionales para la Tensión Total, Corriente Total y Potencia Total
 vt = num_series * u  # Tensión total (Serie)
