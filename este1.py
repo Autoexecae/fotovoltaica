@@ -29,31 +29,31 @@ st.markdown(
     """
     <style>
         .header {
-            font-size: 2em;
+            font-size: 1.5em;  /* Reducción del tamaño de la fuente del encabezado */
             font-weight: bold;
             color: #FFFFFF;
-            margin-bottom: 20px;
+            margin-bottom: 15px;  /* Reducción del margen */
         }
         .result-card {
             background-color: #1E1E2E;
-            padding: 15px;  /* Reducción del padding */
-            border-radius: 10px;
+            padding: 10px;  /* Reducción del padding */
+            border-radius: 8px;
             text-align: center;
             color: #FFFFFF;
-            font-size: 1.2em;  /* Reducción del tamaño de fuente */
-            margin: 8px;  /* Reducción del margen */
+            font-size: 1.1em;  /* Reducción del tamaño de fuente */
+            margin: 5px;  /* Reducción del margen */
         }
         .result-card .value {
-            font-size: 1.5em;  /* Reducción del tamaño de la fuente */
+            font-size: 1.3em;  /* Reducción del tamaño de la fuente */
             font-weight: bold;
         }
         .icon {
-            font-size: 2em;  /* Reducción del tamaño del ícono */
+            font-size: 1.8em;  /* Reducción del tamaño del ícono */
             margin-bottom: 5px;  /* Menor espacio debajo del ícono */
         }
         .sidebar .sidebar-content {
             background-color: #1E1E2E;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             color: #FFFFFF;
         }
