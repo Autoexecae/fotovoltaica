@@ -121,11 +121,11 @@ with col4:
     st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_par:.2f} / {math.floor(no_max_par)}</div><div># Máximo Paralelo</div></div>", unsafe_allow_html=True)
 
 # Cálculo de Número de Serie y Paralelo con los resultados de Potencia, Tensión e Intensidad
-st.write("### Cálculo de Número de Serie y Paralelo")
+st.write("### Serie y Paralelo")
 
 # Entrada de número de series y paralelos
-num_series = st.number_input("Número de Series (Número de paneles por serie):", min_value=1, value=math.ceil(no_min_ps), step=1)
-num_paralelos = st.number_input("Número de Paralelos (Número de series conectadas en paralelo):", min_value=1, value=math.floor(no_max_par), step=1)
+num_series = st.number_input("cantidad de serie:", min_value=1, value=math.ceil(no_min_ps), step=1)
+num_paralelos = st.number_input("cantidad de paralelo:", min_value=1, value=math.floor(no_max_par), step=1)
 
 # Cálculos adicionales para la Tensión Total, Corriente Total y Potencia Total
 vt = num_series * u  # Tensión total (Serie)
