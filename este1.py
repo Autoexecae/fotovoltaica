@@ -114,7 +114,7 @@ col3, col4 = st.columns(2)
 
 with col3:
     st.markdown(f"<div class='result-card'><div class='icon'>🛰️</div><div class='value'>{no_ps:.2f} / {math.ceil(no_ps)}</div><div># Paneles Solares</div></div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_min_ps:.2f} / {math.ceil(no_min_ps)}</div><div>Número Mínimo Paneles Serie</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_min_ps:.2f} / {math.ceil(no_min_ps)}</div><div># Min. Paneles Serie</div></div>", unsafe_allow_html=True)
 
 with col4:
     st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_ps:.2f} / {math.floor(no_max_ps)}</div><div># Máximo Paneles Serie</div></div>", unsafe_allow_html=True)
