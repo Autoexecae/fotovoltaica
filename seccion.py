@@ -32,9 +32,9 @@ def main():
         conductividad = CONDUCTIVIDAD_ALUMINIO
     
     # Entradas numéricas
-    I = st.number_input("Corriente (I) en Amperios:", min_value=0.0, step=0.1)
+    I = st.number_input("Intensidad (I) en Amperios:", min_value=0.0, step=0.1)
     L = st.number_input("Longitud del tramo (L) en metros:", min_value=0.0, step=0.1)
-    valor = st.number_input("Valor del voltaje en Voltios:", min_value=0.0, step=0.1)
+    valor = st.number_input("Valor de la Tension en Voltios:", min_value=0.0, step=0.1)
     caida_tension = st.number_input("Caída de tensión (%):", min_value=0.0, step=0.1)
     
     # Botón para calcular
