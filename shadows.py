@@ -46,8 +46,9 @@ shadow_y = [panel_y[1], 0]
 ax.plot(shadow_x, shadow_y, label="Sombra proyectada", color='r', linestyle='--', linewidth=2)
 
 # Configuración del gráfico
-ax.set_xlim(-2, max(shadow_x) + 2)
-ax.set_ylim(-2, alpha + 2)
+# Ajustar los límites de los ejes para evitar números negativos
+ax.set_xlim(0, max(shadow_x) + 2)  # Límites del eje x sin valores negativos
+ax.set_ylim(0, alpha + 2)          # Límites del eje y sin valores negativos
 ax.set_xlabel("Distancia (metros)")
 ax.set_ylabel("Altura (metros)")
 ax.set_title("Cálculo de Sombra de Panel Solar")
