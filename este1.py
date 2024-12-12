@@ -21,14 +21,14 @@ def calcular_inversor(pmax, p, rtmin, u, rtmax, imax, i):
     no_max_par = imax / i
     return no_ps, no_min_ps, no_max_ps, no_max_par
 
-# Configurar la página
-st.set_page_config(page_title="Calculadora Fotovoltaica", layout="wide")
-
 # Hipervinculos
 st.markdown("""
 <a href="https://www.ejemplo1.com" target="_blank">Calculo de Seccion</a> |
 <a href="https://fotovoltaica-7h4xodselundtvhznfasus.streamlit.app/" target="_blank">Calculo de Sombras</a>
 """, unsafe_allow_html=True)
+
+# Configurar la página
+st.set_page_config(page_title="Calculadora Fotovoltaica", layout="wide")
 
 # Estilos personalizados
 st.markdown(
