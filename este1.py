@@ -26,7 +26,7 @@ st.set_page_config(page_title="Calculadora Fotovoltaica", layout="wide")
 
 # Hipervinculos
 st.markdown("""
-<a href="https://www.ejemplo1.com" target="_blank">Calculo de Seccion</a> |
+<a href="https://fotovoltaica-omxxs7gibx3kyiuze4p6ae.streamlit.app/" target="_blank">Calculo de Seccion</a> |
 <a href="https://fotovoltaica-7h4xodselundtvhznfasus.streamlit.app/" target="_blank">Calculo de Sombras</a>
 """, unsafe_allow_html=True)
 
