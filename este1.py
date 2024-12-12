@@ -24,6 +24,12 @@ def calcular_inversor(pmax, p, rtmin, u, rtmax, imax, i):
 # Configurar la página
 st.set_page_config(page_title="Calculadora Fotovoltaica", layout="wide")
 
+# Hipervinculos
+st.markdown("""
+<a href="https://www.ejemplo1.com" target="_blank">Calculo de Seccion</a> |
+<a href="https://fotovoltaica-7h4xodselundtvhznfasus.streamlit.app/" target="_blank">Calculo de Sombras</a>
+""", unsafe_allow_html=True)
+
 # Estilos personalizados
 st.markdown(
     """
@@ -165,4 +171,3 @@ st.markdown(f"""
 # Footer
 st.write("---")
 st.caption("Calculadora Fotovoltaica - Diseñada por Rubysnen Roberto Vidal")
-
