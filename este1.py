@@ -79,21 +79,21 @@ st.markdown("<div class='header'>Calculadora Fotovoltaica</div>", unsafe_allow_h
 with st.sidebar:
     st.markdown("<div class='header'>Parámetros de Entrada</div>", unsafe_allow_html=True)
     tamb = st.number_input("Temperatura ambiente (Tamb, °C):", value=25.0)
-    g = st.number_input("Radiación solar (G, W/m^2):", value=1000.0)
+    g = st.number_input("Radiación solar (G, W/m2):", value=1000.0)
     cp = st.number_input("Coeficiente de potencia (CP, %):", value=-0.4)
     ct = st.number_input("Coeficiente de tensión (Ct, %):", value=-0.3)
-    ci = st.number_input("Coeficiente de corriente (CI, %):", value=0.05)
+    ci = st.number_input("Coeficiente de Intensidad (CI, %):", value=0.05)
     
     tonc = st.number_input("TONC (°C):", value=45.0)
     st.markdown("<div class='header'>Inversor</div>", unsafe_allow_html=True)
     pmax = st.number_input("Potencia máxima del inversor (Pmax, W):", value=5000.0)
-    rtmin = st.number_input("Rango térmico mínimo del inversor (Rtmin, V):", value=200.0)
-    rtmax = st.number_input("Rango térmico máximo del inversor (Rtmax, V):", value=600.0)
-    imax = st.number_input("Corriente máxima del inversor (Imax, A):", value=20.0)
+    rtmin = st.number_input("Rango tension mínimo del inversor (Rtmin, V):", value=40.0)
+    rtmax = st.number_input("Rango tension térmico máximo del inversor (Rtmax, V):", value=600.0)
+    imax = st.number_input("Intensidad máxima del inversor (Imax, A):", value=20.0)
     st.markdown("<div class='header'>Datos de la Placa</div>", unsafe_allow_html=True)
-    pmp = st.number_input("Potencia máxima de la placa (Pmp, W):", value=300.0)
-    vmp = st.number_input("Voltaje máximo de la placa (Vmp, V):", value=37.0)
-    imp = st.number_input("Corriente máxima de la placa (Imp, A):", value=8.0)
+    pmp = st.number_input("Potencia Maxima Pico (Pmp, W):", value=300.0)
+    vmp = st.number_input("Tension Maxima Pico (Vmp, V):", value=37.0)
+    imp = st.number_input("Intensidad Maxima Pico (Imp, A):", value=8.0)
 
 # Cálculos
 tc = calcular_temperatura_celcius(tamb, g, tonc)
@@ -119,12 +119,12 @@ st.write("### Cálculos del Inversor")
 col3, col4 = st.columns(2)
 
 with col3:
-    st.markdown(f"<div class='result-card'><div class='icon'>🛰️</div><div class='value'>{no_ps:.2f} / {math.ceil(no_ps)}</div><div>No. PS</div></div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_min_ps:.2f} / {math.ceil(no_min_ps)}</div><div># ≻ Serie</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>🛰️</div><div class='value'>{no_ps:.2f} / {math.floor(no_ps)}</div><div>Numero Paneles Solares</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_min_ps:.2f} / {math.ceil(no_min_ps)}</div><div>Numero Minimo Serie</div></div>", unsafe_allow_html=True)
 
 with col4:
-    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_ps:.2f} / {math.floor(no_max_ps)}</div><div> # ≺ Serie</div></div>", unsafe_allow_html=True)
-    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_par:.2f} / {math.floor(no_max_par)}</div><div> # ≺Paralelo</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_ps:.2f} / {math.floor(no_max_ps)}</div><div>Numero Maximo Serie</div></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='result-card'><div class='icon'>📊</div><div class='value'>{no_max_par:.2f} / {math.floor(no_max_par)}</div><div>Numero Paralelos</div></div>", unsafe_allow_html=True)
 
 # Cálculo de Número de Serie y Paralelo con los resultados de Potencia, Tensión e Intensidad
 st.write("### Serie y Paralelo")
